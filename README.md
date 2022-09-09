@@ -12,7 +12,7 @@ Remodifié par BN pour le serveur d'etoiles
 - **Sur Firefox :** https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/
 - **Sur Opera*GX* :** https://addons.opera.com/en/extensions/details/tampermonkey-beta/
 
-▶️ - **Cliquez sur le lien pour l'installer automatiquement :** https://github.com/Be-Enne/zevent-place/raw/main/user.js
+▶️ - **Cliquez sur le lien pour l'installer automatiquement :** https://github.com/Be-Enne/zevent-place/raw/main/e.user.js
 
 ▶️ - Allez sur la page <a href="https://place.zevent.fr/">ZEvent /place</a> *(ou rafraichissez la page `F5` ou `Shift+F5` pour vider le cache)*, vous devriez voir le calque apparaitre *(des points de couleurs)*
 
