@@ -361,6 +361,12 @@ const showUpdate = (version) => {
                     }
 
                     langDiv.appendChild(langSpan);
+                    langSpan.addEventListener("click", (event) => {
+                        if(opts.LANG === event.target.id) return;
+                        opts.LANG = event.target.id;
+                        saveOpts();
+                        window.location.href = REDDIT_URL;
+                    })
 
                    
                 }
