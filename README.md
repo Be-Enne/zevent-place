@@ -12,7 +12,7 @@ Remodifié par BN pour le serveur d'etoiles
 - **Sur Firefox :** https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/
 - **Sur Opera*GX* :** https://addons.opera.com/en/extensions/details/tampermonkey-beta/
 
-▶️ - **Cliquez sur le lien pour l'installer automatiquement :** https://github.com/Be-Enne/zevent-place/raw/main/kcorp.user.js
+▶️ - **Cliquez sur le lien pour l'installer automatiquement :** https://github.com/Be-Enne/zevent-place/raw/main/user.js
 
 ▶️ - Allez sur la page <a href="https://place.zevent.fr/">ZEvent /place</a> *(ou rafraichissez la page `F5` ou `Shift+F5` pour vider le cache)*, vous devriez voir le calque apparaitre *(des points de couleurs)*
 
@@ -25,6 +25,6 @@ Remodifié par BN pour le serveur d'etoiles
 - **On Opera*GX***: https://addons.opera.com/en/extensions/details/tampermonkey-beta/
 
 
-▶️ - **Click on the link to install it automatically:** https://github.com/Be-Enne/zevent-place/raw/main/kcorp.user.js
+▶️ - **Click on the link to install it automatically:** https://github.com/Be-Enne/zevent-place/raw/main/user.js
 
 ▶️ - Go to the <a href="https://place.zevent.fr/">ZEvent /place</a> page *(or refresh the page with `F5` or `Shift+F5` to empty the cache)*, you should see the layer appear (colored dots)
