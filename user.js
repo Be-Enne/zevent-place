@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name         ZEvent Place - Armée de Kameto
-// @namespace    https://github.com/YoannLD/zevent-place-kcorp
+// @name         ZEvent Place
+// @namespace    https://github.com/Be-Enne/zevent-place
 // @version      0.13
 // @description  On va récuperer ce qui nous est dû de droit.
 // @author       Adcoss95 & CorentinGC & Nostral
 // @match        https://place.zevent.fr/*
-// @icon         https://raw.githubusercontent.com/YoannLD/zevent-place-kcorp/main/icon.jpg
+// @icon         https://raw.githubusercontent.com/YoannLD/zevent-place/main/icon.jpg
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/YoannLD/zevent-place-kcorp/main/kcorp.user.js
-// @updateURL    https://raw.githubusercontent.com/YoannLD/zevent-place-kcorp/main/kcorp.user.js
+// @downloadURL  https://raw.githubusercontent.com/Be-Enne/zevent-place/main/user.js
+// @updateURL    https://raw.githubusercontent.com/Be-Enne/zevent-place/main/user.js
 // @supportURL   https://github.com/YoannLD/zevent-place-kcorp/issues
 
 // ==/UserScript==
@@ -17,9 +17,9 @@
 const DEBUG = false;
 
 const UPDATE_URL = GM_info.script.updateURL;
-const DISCORD_URL = "https://discord.gg/kameto";
-const OVERLAY_URL = "https://raw.githubusercontent.com/YoannLD/zevent-place-kcorp/main/overlay.png";
-const VERSION_URL = "https://raw.githubusercontent.com/YoannLD/zevent-place-kcorp/main/version.json";
+
+const OVERLAY_URL = "https://raw.githubusercontent.com/Be-Enne/zevent/main/overlay.png";
+const VERSION_URL = "https://raw.githubusercontent.com/Be-Enne/zevent/main/version.json";
 const PLACE_URL = "https://place.zevent.fr/";
 
 const allowedLangs = ['fr', 'en'];
@@ -32,9 +32,9 @@ const defaultOpts = {
     VERSION: GM_info.script.version,
     LANG: allowedLangs[0]
 };
-let opts = JSON.parse(localStorage.getItem("kc_opts")) || defaultOpts;
+let opts = JSON.parse(localStorage.getItem("opts")) || defaultOpts;
 
-const saveOpts = () => localStorage.setItem("kc_opts", JSON.stringify(opts));
+const saveOpts = () => localStorage.setItem("opts", JSON.stringify(opts));
 const refreshOpts = () => {
     if(GM_info.script.version !== opts.VERSION){
         opts = {
@@ -63,8 +63,7 @@ const LANGS = {
         btn_autorefresh_overlay: "{{0}} l'auto-refresh de l'overlay ({{1}}s)",
         btn_toggle_cache: "{{0}} le cache de l'overlay",
         overlay_opacity: "Opacité de l'overlay",
-        join_discord: "Rejoindre le discord de Kamet0",
-        by_nostral: "KCorp's overlay v{{0}} par Nostral"
+        credits: " oralekin, LittleEndu, ekgame, Wieku, DeadRote GeorgeAbitbol || Adapté pour le Zevent Place par Nostral || Bidouillé une deuxieme fois par BN"
     },
     en: {
         update_available: "`Update available v{{0}} > v{{1}} ! Click here to install`",
@@ -79,8 +78,7 @@ const LANGS = {
         btn_autorefresh_overlay: "{{0}} overlay's auto-refresh ({{1}}s)",
         btn_toggle_cache: "{{0}} overlay's cache",
         overlay_opacity: "Overlay's opacity",
-        join_discord: "Join Kamet0's discord !",
-        by_nostral: "KCorp's overlay v{{0}} by Nostral"
+        by_nostral: " oralekin, LittleEndu, ekgame, Wieku, DeadRote GeorgeAbitbol || Adapted for the Zevent by Nostral || Modified once more by BN"
     },
 };
 const f = (key, ...vars) => {
@@ -91,7 +89,7 @@ const f = (key, ...vars) => {
 
 if(window.top !== window.self) refreshOpts();
 
-const log = (msg) => DEBUG ? console.log("K-Corp Overlay - ", msg) : null
+const log = (msg) => DEBUG ? console.log("Overlay - ", msg) : null
 const open = (link, autoclose=false) => {
     let tab = window.open(link, "_blank");
     tab.focus();
@@ -130,7 +128,7 @@ const checkVersion = () => {
 
 }
 const showUpdate = (version) => {
-    if(document.getElementById("kcorp-update")) return;
+    if(document.getElementById("update")) return;
 
     const update = document.createElement("div");
     update.style.position = "fixed";
@@ -147,7 +145,7 @@ const showUpdate = (version) => {
     update.style.borderRadius = "10px";
     update.style.fontSize = "1.3em";
     update.style.cursor = "pointer";
-    update.id = "kcorp-update";
+    update.id = "update";
 
     let message = document.createTextNode(f("update_available", GM_info.script.version, version));
     update.appendChild(message);
@@ -160,7 +158,7 @@ const showUpdate = (version) => {
 }
 
 (async function() {
-    log("Loading KCorp module");
+    log("Loading module");
 
         const overlayURL = () => OVERLAY_URL+(opts.ENABLE_IMGNOCACHE ? "?t="+new Date().getTime() : "");
         log({opts});
@@ -246,7 +244,7 @@ const showUpdate = (version) => {
                 control.style.left = "90px";
                 control.style.top = "16px";
                 control.style.maxWidth = "150px";
-                control.id = "kcorp-controls";
+                control.id = "controls";
 
                 // Update Btn
                 const updateBtn = document.createElement("button");
@@ -342,13 +340,7 @@ const showUpdate = (version) => {
 
                 slider.addEventListener("input", (event) => handleSlider(event));
 
-                // Discord Btn
-                const discordBtn = document.createElement("button");
-                discordBtn.innerHTML = f("join_discord");
-                defaultStyle(discordBtn);
-                defaultBtn(discordBtn);
-                discordBtn.addEventListener("click", () => open(DISCORD_URL));
-
+       
                 const langDiv = document.createElement("div");
                 defaultBlock(langDiv);
                 for(let lang of allowedLangs){
@@ -370,16 +362,11 @@ const showUpdate = (version) => {
 
                     langDiv.appendChild(langSpan);
 
-                    langSpan.addEventListener("click", (event) => {
-                        if(opts.LANG === event.target.id) return;
-                        opts.LANG = event.target.id;
-                        saveOpts();
-                        window.location.href = REDDIT_URL;
-                    })
+                   
                 }
                 // Version
                 const credits = document.createElement("div");
-                credits.id = "kc-credits";
+                credits.id = "credits";
 
                 const versionSpan = document.createElement("span");
                 versionSpan.innerHTML = f("by_nostral", GM_info.script.version);
@@ -396,7 +383,7 @@ const showUpdate = (version) => {
                 control.appendChild(toggleAutorefreshBtn);
                 control.appendChild(toggleNocacheBtn);
                 control.appendChild(sliderBlock);
-                control.appendChild(discordBtn);
+                
                 control.appendChild(langDiv);
 
                 embed[0].parentNode.appendChild(control);
@@ -410,5 +397,5 @@ const showUpdate = (version) => {
             showOverlay();
             showUi();
         }, false);
-    log("KCorp module loaded");
+    log("module loaded");
 })();
