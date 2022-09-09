@@ -4,6 +4,7 @@ oralekin, LittleEndu, ekgame, Wieku, DeadRote
 GeorgeAbitbol
 
 Adapté pour le Zevent Place par Nostral 
+
 Remodifié par BN pour le serveur d'etoiles
 
 ## Instructions FR
@@ -25,6 +26,6 @@ Remodifié par BN pour le serveur d'etoiles
 - **On Opera*GX***: https://addons.opera.com/en/extensions/details/tampermonkey-beta/
 
 
-▶️ - **Click on the link to install it automatically:** https://github.com/Be-Enne/zevent-place/raw/main/user.js
+▶️ - **Click on the link to install it automatically:** https://github.com/Be-Enne/zevent-place/raw/main/e.user.js
 
 ▶️ - Go to the <a href="https://place.zevent.fr/">ZEvent /place</a> page *(or refresh the page with `F5` or `Shift+F5` to empty the cache)*, you should see the layer appear (colored dots)
