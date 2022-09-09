@@ -5,7 +5,7 @@
 // @description  On va récuperer ce qui nous est dû de droit.
 // @author       Adcoss95 & CorentinGC & Nostral
 // @match        https://place.zevent.fr/*
-// @icon         https://raw.githubusercontent.com/YoannLD/zevent-place/main/icon.jpg
+// @icon         https://raw.githubusercontent.com/YoannLD/zevent-place/main/1.png
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/Be-Enne/zevent-place/main/user.js
 // @updateURL    https://raw.githubusercontent.com/Be-Enne/zevent-place/main/user.js
