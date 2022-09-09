@@ -18,7 +18,7 @@ const DEBUG = false;
 
 const UPDATE_URL = GM_info.script.updateURL;
 
-const OVERLAY_URL = "https://raw.githubusercontent.com/Be-Enne/zevent/main/overlay.png";
+const OVERLAY_URL = "https://raw.githubusercontent.com/YoannLD/zevent-place-kcorp/main/overlay.png";
 const VERSION_URL = "https://raw.githubusercontent.com/Be-Enne/zevent/main/version.json";
 const PLACE_URL = "https://place.zevent.fr/";
 
