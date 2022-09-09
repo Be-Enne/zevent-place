@@ -7,8 +7,8 @@
 // @match        https://place.zevent.fr/*
 // @icon         https://raw.githubusercontent.com/Be-Enne/zevent-place/main/1.png
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/Be-Enne/zevent-place/main/user.js
-// @updateURL    https://raw.githubusercontent.com/Be-Enne/zevent-place/main/user.js
+// @downloadURL  https://raw.githubusercontent.com/Be-Enne/zevent-place/main/e.user.js
+// @updateURL    https://raw.githubusercontent.com/Be-Enne/zevent-place/main/e.user.js
 // @supportURL   https://github.com/YoannLD/zevent-place-kcorp/issues
 
 // ==/UserScript==
